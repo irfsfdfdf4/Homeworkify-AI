@@ -1,0 +1,87 @@
+<div id="chatbot">
+  <div id="searchContainer">
+    <input type="text" id="chatInput" placeholder="Paste your questions here..." />
+    <button id="chatButton">Search</button>
+  </div>
+  <div id="chatResponse"></div>
+</div>
+
+<style>
+  #chatbot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #searchContainer {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #chatInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  #chatInput::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+
+  #chatButton {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #chatButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  #chatResponse {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+</style>
+
+<script>
+  document.getElementById("chatButton").addEventListener("click", function () {
+    const userInput = document.getElementById("chatInput").value.trim();
+    const responseDiv = document.getElementById("chatResponse");
+
+    if (userInput) {
+      responseDiv.textContent = "Processing your query...";
+      // Simulate a delay for processing
+      setTimeout(() => {
+        responseDiv.textContent = "Response will appear here.";
+      }, 2000);
+    } else {
+      responseDiv.textContent = "Please enter a valid query!";
+    }
+  });
+</script>
